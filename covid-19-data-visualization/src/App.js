@@ -1,11 +1,14 @@
 //imports
 import React, {useState, useEffect} from 'react';
+
+//imports of custom React components
 import DynamicCOVIDMap from './components/DynamicCOVIDMap';
-import HelpDrawer from './components/HelpDrawer';
 import Header from './components/Header';
 import Title from './components/Title';
 import COVIDSlider from './components/COVIDSlider';
 import Footer from './components/Footer';
+
+//Material-UI imports
 import { makeStyles } from '@material-ui/core/styles';
 import Divider from '@material-ui/core/Divider';
 import { csv } from "d3-fetch";
@@ -64,15 +67,25 @@ const App = () => {
   return (
     <div className={CSSClasses.root}>
 
-      <HelpDrawer drawer={drawer} toggleDrawer={toggleDrawer} />
+      <Header 
+        drawer={drawer}
+        toggleDrawer={toggleDrawer} 
+        CSSClasses={CSSClasses} 
+        handleGithub={handleGithub} 
+      />
 
-      <Header toggleDrawer={toggleDrawer} CSSClasses={CSSClasses} handleGithub={handleGithub} />
+      <COVIDSlider 
+        setSliderVal={setSliderVal}
+        daysSince={daysSince} 
+      />
 
-      <COVIDSlider setSliderVal={setSliderVal} daysSince={daysSince} />
+      <Title 
+        sliderVal={sliderVal} 
+      />
 
-      <Title sliderVal={sliderVal} />
-
-      <DynamicCOVIDMap data={data} />
+      <DynamicCOVIDMap 
+        data={data} 
+      />
 
       <Divider /><br />
 

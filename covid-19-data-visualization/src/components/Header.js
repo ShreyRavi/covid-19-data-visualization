@@ -1,4 +1,5 @@
 import React from 'react';
+import HelpDrawer from './HelpDrawer';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
@@ -6,9 +7,10 @@ import IconButton from '@material-ui/core/IconButton';
 import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
 import Typography from '@material-ui/core/Typography';
 
-const Header = ({toggleDrawer, CSSClasses, handleGithub}) => {
+const Header = ({drawer, toggleDrawer, CSSClasses, handleGithub}) => {
     return(
         <div>
+            <HelpDrawer drawer={drawer} toggleDrawer={toggleDrawer} />
             <AppBar color="secondary" position="static">
                 <Toolbar>
                 <IconButton onClick={toggleDrawer} edge="start" className={CSSClasses.menuButton} color="inherit" aria-label="menu">

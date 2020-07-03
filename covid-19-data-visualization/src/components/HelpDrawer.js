@@ -1,12 +1,17 @@
 import React from 'react';
 import Drawer from '@material-ui/core/Drawer';
 import Divider from '@material-ui/core/Divider';
+import IconButton from '@material-ui/core/IconButton';
+import CancelIcon from '@material-ui/icons/Cancel';
 import Typography from '@material-ui/core/Typography';
 
 const HelpDrawer = ({drawer, toggleDrawer}) => {
     return(
         <Drawer anchor="left" open={drawer} onClose={toggleDrawer}>
-          <Typography variant="h4">COVID-19 Data Visualization Help and Info</Typography>
+          <Typography variant="h4">COVID-19 Data Visualization Help and Info</Typography> 
+          <IconButton onClick={toggleDrawer}>
+            <CancelIcon />
+          </IconButton>
           <Typography variant="body1">   Instructions: Move the blue slider above the map to adjust how many days after 1/22/2020 <br />you'd like the heatmap to populate. The map should auto-update based on the date chosen.   </Typography>
           <Typography variant="body1">   Note: Application is extremely slow currently due to repeated pulling from NYT data. <br />Future updates should drastically reduce this repeated pulls.   </Typography>
           <Divider />

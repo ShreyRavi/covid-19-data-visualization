@@ -1,3 +1,4 @@
+//imports
 import React, {useState, useEffect} from 'react';
 import DynamicCOVIDMap from './DynamicCOVIDMap';
 import { makeStyles } from '@material-ui/core/styles';
@@ -12,6 +13,7 @@ import Divider from '@material-ui/core/Divider';
 import Slider from '@material-ui/core/Slider';
 import { csv } from "d3-fetch";
 
+//makeStyles - where the CSS for the project will go
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -26,28 +28,29 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function App() {
-  const [daysSince, setDaysSince] = useState(0);
-  const [sliderVal, setSliderVal] = useState(150);
-  const [data, setData] = useState([]);
-  const [, updateState] = React.useState();
-  const forceUpdate = React.useCallback(() => updateState({}), []);
-  const sliderLabel = (val) => {
-    return `${val} Days Since Start`;
-  }
+  //useState variables 
+  const [daysSince, setDaysSince] = useState(0); //days since value for the slider position
+  const [sliderVal, setSliderVal] = useState(150); //set default start to 150 just to show a pretty map
+  const [data, setData] = useState([]); //state to hold data so map is refreshed with every change of slider
+  const [drawer, setDrawer] = useState(false); //state for whether drawer is visible
+
+  //onMount method, just get the number of days in the beginning to render size of slider
   useEffect(() => {
     fetch('/daysSince').then(res => res.json()).then(days => {
       setDaysSince(days.daysSince);
     });
   }, []);
+
+  //useEffect called every time slider is manipulated
   useEffect(() => {
-    if(typeof sliderVal != 'undefined') {
+    if(typeof sliderVal != 'undefined') { //if not undefined (usually called at very beginning with undefined [Object object])
       csv('/data/' + sliderVal).then(counties => {
           setData(counties);
-        });
+        }); //async method to load data from our own Python API endpoint
     }
   }, [sliderVal]);
+
   const CSSClasses = useStyles();
-  const [drawer, setDrawer] = useState(false);
   const handleGithub = () => {
     window.location = "https://github.com/ShreyRavi/covid-19-data-visualization";
   }
@@ -79,7 +82,6 @@ function App() {
         <Slider
           onChange={(e, val) => {setSliderVal(parseFloat(val))}}
           defaultValue={150}
-          getAriaValueText={sliderLabel}
           aria-labelledby="discrete-slider"
           valueLabelDisplay="on"
           step={1}

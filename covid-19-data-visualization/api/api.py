@@ -8,10 +8,14 @@ from datetime import date, timedelta
 from flask import Flask, make_response
 import pandas as pd
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='../build', static_url_path='/')
 
 start_date = date(2020, 1, 21)
 NYT_URL = 'https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv'
+
+@app.route('/')
+def index():
+    return app.send_static_file('index.html')
 
 @app.route('/daysSince')
 def get_days_since():

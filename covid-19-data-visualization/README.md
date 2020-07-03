@@ -1,68 +1,45 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# [COVID-19 Data Visualization](https://covid-19-data-visualization-py.herokuapp.com/)
+A quick example of a full-stack data visualization project, with a React front-end and Python back-end. Note: This is a proof of concept, and much further work will be needed to be done to make the app more efficient.
+<p align="center"><img src="https://raw.githubusercontent.com/ShreyRavi/covid-19-data-visualization/master/covid-19-data-visualization/screenshot.PNG" height="93%" width="93%">Screenshots of the COVID-19 Data Visualization in action.</p>
 
-## Available Scripts
+## [Link to Live Demo](https://covid-19-data-visualization-py.herokuapp.com/)
 
-In the project directory, you can run:
+## Usage
+Go to [the deployed app](https://covid-19-data-visualization-py.herokuapp.com/) and move the blue slider on top left/right to reduce/increase the number of days since 1/22/2020 to generate a heatmap of COVID-19 cases in the US.
 
-### `yarn start`
+## Local Setup
+1. Clone Repository
+```
+git clone https://github.com/ShreyRavi/covid-19-data-visualization.git
+```
+2. Change to project top folder
+```
+cd covid-19-data-visualization
+```
+3. PIP install requirements
+```
+pip install -r requirements.txt
+```
+4. Run Flask app via yarn
+```
+yarn start-api
+```
+5. Run React frontend app via yarn
+```
+yarn start
+```
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Built With
+- [Flask](https://palletsprojects.com/p/flask/)
+- [pandas](https://pandas.pydata.org/)
+- [python-dotenv](https://pypi.org/project/python-dotenv/)
+- [Heroku](http://heroku.com/)
+- [Gunicorn](https://gunicorn.org/)
+- [react-simple-maps](https://www.react-simple-maps.io/)
+- [Material-UI](https://material-ui.com/)
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Data Source/Attribution
+The COVID-19 data is sourced from the New York Times's public GitHub repository CSV of COVID-19 data, from [here](https://github.com/nytimes/covid-19-data).
 
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## Future Plans
+- More efficient parsing of data (right now, we're pulling EVERY TIME the slider is moved!)

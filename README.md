@@ -29,12 +29,22 @@ yarn start-api
 yarn start
 ```
 
+## React Components
+- **COVIDSlider** - a React component that holds the Material-UI Slider component so the user can choose the date (or days since 1/21/2020) to show data for
+- **DynamicCOVIDMap** - a React component using [react-simple-maps](https://www.react-simple-maps.io/) to display pulled `.csv` data split by quintiles
+- **Footer** - a React component that holds the front-end for the typical footer information
+- **Header** - a React component that holds the front-end for the header Material-UI AppBar on top
+- **HelpDrawer** - a React component that holds the Material-UI Drawer component for the informational drawer
+- **Title** - a React component that holds the front-end for the title
+
 ## Built With
 - [Flask](https://palletsprojects.com/p/flask/)
 - [pandas](https://pandas.pydata.org/)
 - [python-dotenv](https://pypi.org/project/python-dotenv/)
 - [Heroku](http://heroku.com/)
 - [Gunicorn](https://gunicorn.org/)
+- [d3-scale](https://www.npmjs.com/package/d3-scale)
+- [d3-fetch](https://www.npmjs.com/package/d3-fetch)
 - [react-simple-maps](https://www.react-simple-maps.io/)
 - [Material-UI](https://material-ui.com/)
 
@@ -42,4 +52,6 @@ yarn start
 The COVID-19 data is sourced from the New York Times's public GitHub repository CSV of COVID-19 data, from [here](https://github.com/nytimes/covid-19-data).
 
 ## Future Plans
-- More efficient parsing of data (right now, we're pulling EVERY TIME the slider is moved!)
+- More efficient parsing of data 
+- Possible date range GIF-like visualizations of growth over time
+- Database to store data rather than pulling everytime from NYT

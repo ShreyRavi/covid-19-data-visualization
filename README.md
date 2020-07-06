@@ -38,7 +38,7 @@ yarn start
 - **Title** - a React component that holds the front-end for the title
 
 ## API Routes
-- **`/data/<daysSince>`** - returns a generated `.csv` file using Pandas with data only for the `daysSince` (a `GET` parameter) days since 1/22/2020, with a little data clean-up
+- **`/data/<daysSince>`** - returns a generated `.csv` file from the New York Times COVID-19 data using Pandas with data only for the `daysSince` (a `GET` parameter) days since 1/22/2020, with a little data clean-up
 - **`/`** - the static file index.html, which then contains the code to start the built React front-end
 - **`/daysSince/`** - API route to get days since 1/21/2020
 See [api/api.py](https://raw.githubusercontent.com/ShreyRavi/covid-19-data-visualization/master/covid-19-data-visualization/api/api.py) for Python/Flask code detailing this logic.
